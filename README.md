@@ -5,7 +5,14 @@
 
 ## Content
 
-<li type="number">
-    Into Basic Javascript Programming
-</li>
+<ol style="margin-left: 10%; margin-right: 10%;">
+    <li type="1">Into Basic Javascript Programming</li>
+    <li>Types and Grammar</li>
+</ol>
 </div>
+
+<h1 align="center">Into Basic Javascript Programming</h1>
+
+## Operator:
+
+## Loop:
