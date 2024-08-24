@@ -35,3 +35,59 @@ Instead a(number) is converted as string. In JS, fixed value is also known as li
 ## Operator:
 
 ## Loop:
+
+In Javascript we use three conventional & most used loop(For, while, do while). But there is another two version of 'for' loop which are for-in and for-of.
+<br>
+For-in: This loop is used for traversing the properties of an object.
+
+```bash
+const person = {
+    fname:"John",
+    lname:"Doe",
+    age:25};
+for (let x in person) {
+  console.log(person[x]);
+}
+```
+
+For-of: This loop is used to iterate over any iterable variable.
+
+```bash
+var age = [12, 33, 45, 23];
+for (let x of age) {
+  console.log(x);
+}
+```
+
+forEach: It is used to iterate over all element of an array and execute a function on a single element.
+
+```bash
+const a = [1, 2, 3, 4, 5];
+a.forEach(myfunction());
+function myfunction(number, index) {
+  console.log(`Index ${index}: ${number}`);
+}
+
+```
+
+callback function can be used in here as well.
+
+```bash
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach(function(number, index) {
+  console.log(`Index ${index}: ${number}`);
+});
+
+const multiplier = 2;
+const numbers = [1, 2, 3];
+
+numbers.forEach(function(number) {
+  console.log(number * this); // this refers to multiplier
+}, multiplier);
+numbers.forEach(function(number) {
+  console.log(number * this); // this refers to multiplier
+}); //result will be undefined
+```
+
+thisargs can be used. if this isn't defined it will refer to the global object. In strict mode which is undefined.
