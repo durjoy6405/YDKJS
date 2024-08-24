@@ -12,3 +12,8 @@ if (!Array.prototype.forEach) {
 arr.forEach((value) => {
   console.log(value * 2);
 });
+
+const age = [12, 33, 45, 23];
+for (let x of age) {
+  console.log(age[x]);
+}
