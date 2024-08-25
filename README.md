@@ -34,6 +34,35 @@ Instead a(number) is converted as string. In JS, fixed value is also known as li
 
 ## Operator:
 
+The usage of operators are quite same in javascript like all other language.
+But there are some key differences in comparison Operator. There is equal `==`
+which returns `true` if the operands are equal and not equal `!=` returns
+true when operands are not equal by value. It doesn't check the data type.
+
+```bash
+console.log(5=="5"); //true
+
+console.log(5!='5'); //false
+```
+
+Here implicit coercion is happened. ,<br>
+To check the data equality and type, there is another operand which is three equal `===`.
+When we use `===`,it checks both the operands value and type. If both of the operands value and type are same
+it returns true, else false.
+
+```bash
+console.log(5===5); //true
+console.log(5==='5'); // false
+```
+
+While `!==` works in opposite way of `===`.
+
+```bash
+console.log(5!=="5"); //true
+
+console.log(5!==5); //false
+```
+
 ## Loop:
 
 In Javascript we use three conventional & most used loop(For, while, do while). But there is another two version of 'for' loop which are for-in and for-of.
@@ -90,4 +119,5 @@ numbers.forEach(function(number) {
 }); //result will be undefined
 ```
 
-thisargs can be used. if this isn't defined it will refer to the global object. In strict mode which is undefined.
+thisargs can be used. if this isn't defined it will refer to the global object.
+In strict mode which is undefined.
