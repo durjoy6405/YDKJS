@@ -278,6 +278,38 @@ greet("Peter", callMe);
 
 ### Uses of this keywords in Function:
 
+#### this for regular Function:
+
+1. Function call context:
+   When a regular function is called as a standalone function (i.e., not as a method of
+   an object), this refers to the global object (in non-strict mode) or undefined (in
+   strict mode).
+
+```bash
+function regularFunction() {
+    console.log(this);
+}
+
+regularFunction(); // In non-strict mode: `this` refers to the global object (e.g., `window` in browsers)
+// In strict mode: `this` is `undefined`
+
+```
+
+2. `this` in methods:
+   When a regular function is used as a method, this refers to the object that contains
+   the method.
+
+```bash
+const obj = {
+    name: 'Alice',
+    greet: function() {
+        console.log(this.name);  // 'this' refers to 'obj'
+    }
+};
+
+obj.greet();  // Output: 'Alice'
+```
+
 <h1 align="center">Scopes and Closure</h1>
 Scopes and Closure are fundamental concepts in JavaScript that are crucial for understanding how 
 code execution works and how variables are managed.
@@ -392,3 +424,5 @@ function outerFunc() {
 
 outerFunc();
 ```
+
+### Closure:
