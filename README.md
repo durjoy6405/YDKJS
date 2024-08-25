@@ -183,7 +183,8 @@ function updateBrand(obj) {
 
 Here `this` refers to the object not to the function itself.
 
-IIFE (Immediately Invoked Function Expression): <br>
+### IIFE (Immediately Invoked Function Expression): <br>
+
 It's a design pattern of a function which allows to execute it just after
 creation. we can't use it somewhere else unless something is returned.
 
@@ -215,3 +216,62 @@ To define a method inside an object literal returned from an IIFE, use:
 
 1. Key-Value Syntax: key: function() { ... }
 2. Method Shorthand Syntax: key() { ... }
+
+### Anonymous Function:
+
+There is another way to declare a function using variable without directly
+providing a function name. As there is no direct function name, it is called as
+anonymous function.
+
+```bash
+const x = function (a, b) {
+    return a * b
+};
+console.log(x(2,3)); //6
+```
+
+### Arrow Function:
+
+It is introduced in ES6 which provides more concise syntactical way to
+write a function than traditional way. this is useful for `forEach` loop.
+
+```bash
+const greet = () => console.log('Hello, World!');
+greet();  // Output: Hello, World!
+```
+
+```bash
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach(number => {
+    console.log(number);
+});
+```
+
+### Callback Function:
+
+A callback function is a function passed into another function as an
+argument, which is then invoked inside the outer function to complete
+some kind of routine or action.
+
+```bash
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach(function(number) {
+    console.log(number);
+});
+
+
+function greet(name, callback) { //function
+    console.log('Hi' + ' ' + name);
+    callback();
+}
+
+// callback function
+function callMe() {
+    console.log('I am callback function');
+}
+
+// passing function as an argument
+greet('Peter', callMe);
+```
