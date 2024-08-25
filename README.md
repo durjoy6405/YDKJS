@@ -275,3 +275,120 @@ function callMe() {
 // passing function as an argument
 greet("Peter", callMe);
 ```
+
+### Uses of this keywords in Function:
+
+<h1 align="center">Scopes and Closure</h1>
+Scopes and Closure are fundamental concepts in JavaScript that are crucial for understanding how 
+code execution works and how variables are managed.
+
+### Scopes:
+
+Scope refers to the context in which variables and functions are accessible.
+It determines which parts of the code can access certain variables and
+functions. There are mainly 2 types of scope in javascript. Those are:
+
+1. Global Scope
+2. Local Scope
+
+#### 1. Global Scope:
+
+If any declared variables or function from a codebase is accessible from anywhere
+in code, that variables and functions is in global scope.
+
+```bash
+var globalVar = 'I am global';
+
+function showGlobal() {
+    console.log(globalVar); // 'I am global'
+}
+
+showGlobal();
+console.log(globalVar);
+```
+
+#### 2. Local Scope:
+
+If a variable or function is declared in a function or block, is known as
+Local scoped variable or function.
+
+```bash
+function localScopeExample() {
+    var localVar = 'I am local';
+    console.log(localVar); // 'I am local'
+}
+
+localScopeExample();
+console.log(localVar); // ReferenceError: localVar is not defined
+```
+
+There are another two scopes based on type of variables characteristics.
+Those are:
+
+1. Block Scope
+2. Function scope
+
+#### Block Scope: `let` and `const` are block scoped variable.
+
+Those 2 type of variables are only accessible inside the block or the child block,
+not outside of the block where it was declared.
+
+```bash
+function myfunc(a){
+    int i = 0;
+    while(i<5){
+        a+=i;
+        i++;
+    }
+    return a;
+}
+let sum = myfunc(0);
+console.log(sum); //10
+console.log(i); //ReferenceError
+
+if (true) {
+    let blockVar = 'I am block-scoped';
+    console.log(blockVar); // 'I am block-scoped'
+}
+
+console.log(blockVar); // ReferenceError: blockVar is not defined
+
+```
+
+#### Function Scope:
+
+`var` is a function scoped variable. If we declare `var` type variable anywhere
+in function, it is accessible anywhere inside of that function.
+
+```bash
+function func() {
+    var x = 1;
+    if (true) {
+        var x = 2; // Same variable as above
+        console.log(x); // 2
+    }
+    console.log(x); // 2
+}
+
+func();
+```
+
+For nested function:
+
+```bash
+function outerFunc() {
+    var outerVar = 'I am outer';
+
+    function innerFunc() {
+        var innerVar = 'I am inner';
+        console.log(outerVar); // Accesses the outer function's variable
+        console.log(innerVar); // Accesses the inner function's variable
+    }
+
+    innerFunc();
+    console.log(outerVar); // Accessible here
+    console.log(innerVar); // Error: innerVar is not defined (out of scope)
+}
+
+outerFunc();
+```
