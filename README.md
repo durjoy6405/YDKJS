@@ -254,24 +254,24 @@ A callback function is a function passed into another function as an
 argument, which is then invoked inside the outer function to complete
 some kind of routine or action.
 
-```bash
+```javascript
 const numbers = [1, 2, 3, 4, 5];
 
-numbers.forEach(function(number) {
-    console.log(number);
+numbers.forEach(function (number) {
+  console.log(number);
 });
 
-
-function greet(name, callback) { //function
-    console.log('Hi' + ' ' + name);
-    callback();
+function greet(name, callback) {
+  //function
+  console.log("Hi" + " " + name);
+  callback();
 }
 
 // callback function
 function callMe() {
-    console.log('I am callback function');
+  console.log("I am callback function");
 }
 
 // passing function as an argument
-greet('Peter', callMe);
+greet("Peter", callMe);
 ```
