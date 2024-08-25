@@ -121,3 +121,97 @@ numbers.forEach(function(number) {
 
 thisargs can be used. if this isn't defined it will refer to the global object.
 In strict mode which is undefined.
+
+## Function:
+
+In JavaScript, functions are first-class objects, because they can be
+passed to other functions, returned from functions, and assigned to variables and
+properties. They can also have properties and methods just like any other object.
+What distinguishes them from other objects is that functions can be called.
+
+<br> There are varieties of uses of function. They
+have regular expression which looks like other languages. Also there are some special
+type of functions like `IIFE`, `anynomous`, `callback` etc. Normally function start
+with `function` keyword. It doesn't have any return type.<br>
+Regular Expression:
+
+```bash
+function sum(int a, int b){
+    return a+b;
+}
+```
+
+JavaScript parameter Passing: <br>
+JavaScript uses pass-by-value for primitive types and pass-by-reference
+for objects (including arrays and functions).
+
+```bash
+function modifyValue(x) {
+    x = 10;  // This does not change the original value outside the function
+}
+
+let num = 5;
+modifyValue(num);
+console.log(num);  // Output: 5
+
+```
+
+Arguments are always passed by value and never passed by reference. This means
+that if a function reassigns a parameter, the value won't change outside
+the function. More precisely, object arguments are passed by sharing, which
+means if the object's properties are mutated, the change will impact the
+outside of the function.
+
+```bash
+function updateBrand(obj) {
+    obj.brand = "Toyota";  // Mutating the object
+
+    obj = null; // Trying to reassign the parameter
+  }
+
+  const car = {
+    brand: "Honda",
+    model: "Accord",
+    year: 1998,
+  };
+  console.log(car.brand); // Honda
+
+  updateBrand(car); // Pass object reference to the function
+
+  console.log(car.brand); // Toyota
+```
+
+Here `this` refers to the object not to the function itself.
+
+IIFE (Immediately Invoked Function Expression): <br>
+It's a design pattern of a function which allows to execute it just after
+creation. we can't use it somewhere else unless something is returned.
+
+```bash
+var MyModule = (function() {
+    var privateVariable = 'I am private';
+
+    function privateFunction() {
+        console.log('This is a private function');
+    }
+
+    return {
+        publicMethod: function() { // key value syntax
+            console.log('This is a public method 1');
+            privateFunction();
+        },
+        publicMethod1(){ //shorthand syntax
+            console.log('This is a public method');
+        }
+    };
+})();
+MyModule.publicMethod1();
+
+MyModule.publicMethod();  // Output: 'This is a public method' and 'This is a private function'
+console.log(MyModule.privateVariable);  // Output: undefined (privateVariable is not accessible)
+```
+
+To define a method inside an object literal returned from an IIFE, use:
+
+1. Key-Value Syntax: key: function() { ... }
+2. Method Shorthand Syntax: key() { ... }
