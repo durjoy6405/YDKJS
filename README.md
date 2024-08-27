@@ -551,3 +551,117 @@ function Animal(name) {
   const cat = new Animal('Whiskers');
   cat.sayName(); // Logs 'Whiskers'
 ```
+
+<h1 align="center">Types & Grammar</h1>
+JavaScript has a dynamic type system, meaning types are determined at 
+runtime. <br>
+
+#### 1. Primitive Types in JavaScript:
+
+##### a. Undefined:
+
+Represents a variable that has been declared but not yet assigned a value.
+
+```bash
+let x;
+console.log(x); // 'undefined'
+```
+
+For hoisting reason, a value can be undefined as well.
+
+##### b. Null:
+
+A special value that represents "no value" or "nothing".
+It is explicitly assigned to variables.
+
+```bash
+let x = null;
+console.log(x); // 'null'
+```
+
+##### c. Boolean:
+
+Represents a logical entity with two values: `true` and `false`.
+
+```bash
+let flag = true;
+console.log(flag); // true
+
+console.log(3===3); //true
+```
+
+##### d. Number & String:
+
+`Integer` and `double` both are Numbers. `string` is a series of characters.
+
+```bash
+let n = 30;
+let f = 30.5;
+let s = "It's raining";
+console.log(n, f); //30, 30.5
+console.log(s);// It's raining
+
+console.log(typeof(n)); //number
+console.log(typeof(f)); //number
+console.log(typeof(s)); //string
+```
+
+##### e. Symbol & BigInt:
+
+Symbol is unique and immutable data type used primarily as object
+property keys. And `bigInt` is an arbitrary-precision integer type.
+Introduced to handle very large numbers.
+
+```bash
+const sym = Symbol('description');
+console.log(sym); // Logs 'Symbol(description)'
+console.log(typeof(sym)); //Symbol
+
+let bint = 983208374297902724n;
+console.log(bint); // 983208374297902724n
+console.log(typeof(bint)); //bigint
+```
+
+##### f. Object:
+
+A collection of key-value pairs. Objects are complex data types that
+can store multiple values.
+
+```bash
+const person ={
+    name: 'Daniel',
+    contact: '*********',
+    address: 'House: 4, street: 3, NY, USA'
+}
+console.log(person); // output whole object
+console.log(typeof(person)); // object
+```
+
+#### 2. Type Conversion:
+
+There are 2 types of type conversion in javascript. implicit and explicit.
+
+##### a. Implicit Conversion(coercion):
+
+JavaScript automatically converts types in certain operations.
+
+```bash
+console.log('5' + 1); // '51' (string concatenation)
+console.log('5' - 1); // 4 (numeric subtraction)
+```
+
+##### b. Explicit Conversion:
+
+Manual conversion of types using global functions like `String()`,
+`Number()`, and `Boolean()`.
+
+```bash
+let numStr = "123";
+let num = Number(numStr);
+console.log(num); // 123
+console.log(typeof(num)); // number
+```
+
+#### 3. Grammar & Syntax:
+
+This part was already mentioned in <span style="font-weight: bold;">"Basic Javascript" </span> portion.
