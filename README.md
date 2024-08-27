@@ -506,3 +506,48 @@ const obj = {
  };
  obj.greet();
 ```
+
+#### 2. Object Prototypes: <br>
+
+JavaScript uses prototypes for inheritance. All objects have an internal
+prototype property that points to another object, from which they inherit
+properties and methods.
+
+##### a. Prototype Chain: <br>
+
+All objects is Javascript has a prototype which itself is an object.
+This prototype object can have it's own prototype by containing a prototype
+chain. By using `object.prototype`, top of the can be accessible.
+
+```bash
+const parent = {
+    sayHello() {
+      console.log('Hello');
+    }
+  };
+
+  const child = Object.create(parent);
+  child.sayHello(); // Logs 'Hello', `child` inherits from `parent`
+```
+
+Here `Object.create()` method creates a new prototype of specified object
+prototype.
+
+##### b. Constructor Functions and Prototypes: <br>
+
+Constructor functions use the prototype property to define methods and
+properties that should be shared across all instances created by the
+constructor.
+
+```bash
+function Animal(name) {
+    this.name = name;
+  }
+
+  Animal.prototype.sayName = function() {
+    console.log(this.name);
+  };
+
+  const cat = new Animal('Whiskers');
+  cat.sayName(); // Logs 'Whiskers'
+```
