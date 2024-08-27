@@ -9,6 +9,7 @@
     <li type="1">Into Basic Javascript Programming</li>
     <li>Types and Grammar</li>
     <li>Scopes & Closure</li>
+    <li>this & Object Prototypes</li>
 </ol>
 </div>
 
@@ -426,3 +427,82 @@ outerFunc();
 ```
 
 ### Closure:
+
+<h1 align="center">'this' & Object Prototypes</h1>
+
+#### 1. The `this` Keyword: <br>
+
+The `this` keyword in JavaScript refers to the context in which a function
+is executed. Its value can vary depending on how a function is called.
+
+#### a. Global Context: <br>
+
+When this is used in the global execution context (i.e., outside of any
+function), it refers to the global object. In a browser, this is the
+window object.
+
+```bash
+console.log(this); // In a browser, this logs the global object: window
+```
+
+#### b. Function Context: <br>
+
+Inside a regular function, the value of `this` depends
+on how the function is called.
+
+##### (i) Global Function Call: <br>
+
+If a function is called directly (not as a method or constructor), `this`
+refers to the global object (in strict mode, this is undefined).
+
+```bash
+function globalFunction() {
+    console.log(this); // In non-strict mode, this is the global object; in strict mode, it's undefined
+  }
+  globalFunction();
+```
+
+##### (ii) Method Call: <br>
+
+When a function is called as a method of an object, `this` refers to the
+object that owns the method.
+
+```bash
+const obj = {
+    name: 'Alice',
+    greet: function() {
+      console.log(this.name); // Logs 'Alice', because `this` refers to obj
+    }
+  };
+  obj.greet();
+```
+
+##### (iii) Constructor Function: <br>
+
+When a function is used as a constructor (called with the `new` keyword),
+`this` refers to the newly created instance.
+
+```bash
+function Person(name) {
+    this.name = name;
+  }
+  const person = new Person('Bob');
+  console.log(person.name); // Logs 'Bob', `this` refers to the new Person instance
+```
+
+##### (iv) Arrow Function: <br>
+
+Arrow functions do not have their own `this`. Instead, they inherit `this`
+from their enclosing lexical context.
+
+```bash
+const obj = {
+   name: 'Charlie',
+   greet: function() {
+     setTimeout(() => {
+       console.log(this.name); // Logs 'Charlie', because arrow function inherits `this` from greet method
+     }, 1000);
+   }
+ };
+ obj.greet();
+```
